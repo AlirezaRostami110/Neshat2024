@@ -32,16 +32,13 @@ print(sum(ans_sum))
 from threading import Thread
 
 n = int(input("Calculatig the sum of numbers from 1 to : "))
-
 num_list = [i for i in range(1,n)]
 
-#Using in list_dividing function
-len_num = len(num_list)
 divided_lists = []
 
 def list_dividing(n):
     for i in range(n):
-        divided_lists.append(num_list[i * len_num // n: (i + 1) * len_num // n])
+        divided_lists.append(num_list[i * len(num_list) // n: (i + 1) * len(num_list) // n])
     return divided_lists
 
 answer_result = 0

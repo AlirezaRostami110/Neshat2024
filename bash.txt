@@ -1,0 +1,47 @@
+10 Bash scripting problems
+
+1- For word "alireza" in untitled.txt file, if we want to search just that word this code work :
+grep -w "alireza" untitled.txt | wc -l
+if we want to find that word between the text wherever it found, this code work :
+grep "alireza" untitled.txt | wc -l
+
+2- 
+cat success.txt | tr -s '[:space:]' '\n' | sort | uniq -c | sort -nr | tr -s '[:digit:]' ' '  | head -5
+
+
+3- For email addresses in em.log file with this format :
+2024-02-06 12:05:23 - user123@example.com - User logged in
+2024-02-06 12:10:45 - admin@company.com - Access granted
+
+grep -oE '\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b' em.log
+
+4- For numbers (each number in a line) in nums.txt :
+sort -nr nums.txt
+
+5- For this formatting log file with the name "error.log" :
+2024-02-06 12:05:23 - INFO: Application started successfully
+2024-02-06 12:10:45 - ERROR: Database connection failed
+
+grep 'ERROR' error.log
+
+6- For files in current directory :
+du -sh
+
+7- After installing csvkit using pip  :
+pip install csvkit
+We can convert "names.csv" file to "names.json" file using :
+csvjson names.csv > names.json
+
+8- Way 1 :
+ps -eo comm,%cpu --sort=-%cpu | head -10
+Way 2 :
+ps aux | awk '{print $3, $11}' | sort -r | head -10
+
+9- This code combine file "two.txt" to "one.txt" file :
+paste one.txt two.txt 
+
+10- For ipv4 ip addresses in ip.log file with this format :
+2024-02-06 12:05:23 - 192.168.1.100 - User logged in
+2024-02-06 12:10:45 - 10.0.0.5 - Access granted
+
+grep -oE '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b' ip.log | sort | uniq
